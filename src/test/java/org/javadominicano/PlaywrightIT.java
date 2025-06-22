@@ -22,7 +22,7 @@ public class PlaywrightIT {
         playwright = Playwright.create();
         BrowserType browserType = playwright.chromium();
 
-        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
+        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(true);
         launchOptions.headless = false;
 
         browser = browserType.launch(launchOptions);
