@@ -1,6 +1,7 @@
 package org.javadominicano;
 
 import com.microsoft.playwright.*;
+import io.github.cdimascio.dotenv.Dotenv;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -22,8 +23,10 @@ public class PlaywrightIT {
         playwright = Playwright.create();
         BrowserType browserType = playwright.chromium();
 
+        Dotenv dotenv = Dotenv.load();
+
         boolean headless = Boolean.parseBoolean(
-                System.getenv().getOrDefault("HEADLESS", "true")
+                dotenv.get("HEADLESS", "true")
         );
 
         BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions()

@@ -8,6 +8,7 @@
 *.iml
 .DS_Store
 
+.env
 /htmlReport/
 
 # The following files are generated/updated by vaadin-maven-plugin
