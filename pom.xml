@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <!-- Project from https://start.vaadin.com/project/71e46461-0e28-4c0f-b69a-0276d968d34a -->
-    <groupId>org.jconfdominicana</groupId>
+    <groupId>org.javadominicano</groupId>
     <artifactId>vaadin-playwright-junit</artifactId>
     <name>vaadin-playwright-junit</name>
     <version>1.0-SNAPSHOT</version>
@@ -12,7 +12,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <vaadin.version>24.8.0.rc2</vaadin.version>
+        <vaadin.version>24.8.0</vaadin.version>
     </properties>
 
     <parent>
@@ -106,6 +106,13 @@
             <artifactId>vaadin-testbench-junit5</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.51.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

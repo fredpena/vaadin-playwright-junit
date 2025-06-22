@@ -1,0 +1,135 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > BasicView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.javadominicano.views</a>
+</div>
+
+<h1>Coverage Summary for Class: BasicView (org.javadominicano.views)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">BasicView</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.javadominicano.views;
+&nbsp;
+&nbsp;import com.vaadin.flow.component.button.Button;
+&nbsp;import com.vaadin.flow.component.html.Paragraph;
+&nbsp;import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+&nbsp;import com.vaadin.flow.router.PageTitle;
+&nbsp;import com.vaadin.flow.router.Route;
+&nbsp;import com.vaadin.flow.router.RouteAlias;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author me@fredpena.dev
+&nbsp; * @created 22/06/2025  - 18:32
+&nbsp; */
+&nbsp;@PageTitle(&quot;Basic Form&quot;)
+&nbsp;@Route(&quot;basic&quot;)
+&nbsp;@RouteAlias(&quot;&quot;)
+&nbsp;public class BasicView extends VerticalLayout {
+&nbsp;
+<b class="fc">&nbsp;    public BasicView() {</b>
+<b class="fc">&nbsp;        Paragraph paragraph = new Paragraph(&quot;&quot;);</b>
+<b class="fc">&nbsp;        paragraph.setId(&quot;msg&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Button button = new Button(&quot;Click me&quot;);</b>
+<b class="fc">&nbsp;        button.setId(&quot;btn&quot;);</b>
+<b class="fc">&nbsp;        button.addClickListener(event -&gt; {</b>
+<b class="fc">&nbsp;            paragraph.setText(&quot;Clicked!&quot;);</b>
+&nbsp;        });
+&nbsp;
+<b class="fc">&nbsp;        add(paragraph, button);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-06-22 12:56</div>
+</div>
+</body>
+</html>

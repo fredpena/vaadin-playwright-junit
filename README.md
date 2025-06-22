@@ -1,51 +1,71 @@
-# vaadin-playwright-junit
+# Pruebas E2E en Vaadin con Playwright y JUnit 5
 
-This project can be used as a starting point to create your own Vaadin application with Spring Boot.
-It contains all the necessary configuration and some placeholder files to get you started.
+Este proyecto es un ejemplo y punto de partida para configurar pruebas End-to-End (E2E) en una aplicación Vaadin,
+utilizando Playwright como motor de automatización y JUnit 5 como framework de pruebas.
 
-## Running the application
+El objetivo es demostrar cómo
+integrar pruebas de UI automatizadas en un flujo de desarrollo y de Integración Continua (CI) a través de GitHub
+Actions.
 
-Open the project in an IDE. You can download the [IntelliJ community edition](https://www.jetbrains.com/idea/download) if you do not have a suitable IDE already.
-Once opened in the IDE, locate the `Application` class and run the main method using "Debug".
+## Flujo de Trabajo del Proyecto
 
-For more information on installing in various IDEs, see [how to import Vaadin projects to different IDEs](https://vaadin.com/docs/latest/getting-started/import).
+El flujo principal de este repositorio se centra en tres áreas clave:
 
-If you install the Vaadin plugin for IntelliJ, you should instead launch the `Application` class using "Debug using HotswapAgent" to see updates in the Java code immediately reflected in the browser.
+1. **La Aplicación Vaadin:** Una aplicación web simple
+   que sirve como sujeto de prueba.
+2. **Las Pruebas E2E:** Scripts de prueba que simulan la interacción de un usuario con la
+   aplicación.
+3. **La Integración Continua (CI):** Un pipeline automatizado que ejecuta las pruebas en cada cambio para
+   garantizar la calidad del código.
 
-## Deploying to Production
+## Ejecución de las Pruebas
 
-The project is a standard Maven project. To create a production build, call 
+### 1. Ejecución en Local
 
+Para ejecutar las pruebas en tu máquina, el proyecto utiliza Maven. El siguiente comando compilará la aplicación, la
+iniciará, ejecutará las pruebas de Playwright contra ella y finalmente la detendrá.
+
+```shell
+./mvnw verify
 ```
-./mvnw clean package -Pproduction
+
+Si tienes Maven instalado globalmente, puedes usar `mvn verify`. Las pruebas se encuentran en el directorio
+`src/test/java`.
+
+### 2. Integración Continua con GitHub Actions
+
+El repositorio incluye un flujo de trabajo preconfigurado en `.github/workflows/playwright-java.yml`. Este workflow se
+activa
+automáticamente con cada `push` o `pull request` al repositorio y realiza los siguientes pasos:
+
+* Configura el entorno de Java.
+* Construye el proyecto.
+* Ejecuta el comando `./mvnw verify` para lanzar las pruebas E2E.
+
+Esto asegura que ninguna nueva contribución rompa la funcionalidad existente de la interfaz de usuario.
+
+### 3. Probar GitHub Actions Localmente con `act`
+
+Para validar los cambios en el workflow de GitHub Actions sin necesidad de hacer un `push` al repositorio, puedes usar
+`act`. Esta herramienta te permite ejecutar tus workflows de GitHub Actions localmente.
+
+**Pasos para usar act:**
+
+1. **Instala `act`**: Sigue las instrucciones de instalación oficiales.
+2. **Ejecuta el workflow**: Desde la raíz del proyecto, simplemente ejecuta el comando:
+
+```shell
+    act
 ```
 
-If you have Maven globally installed, you can replace `./mvnw` with `mvn`.
+`act` leerá el archivo `.github/workflows/playwright-java.yml` y ejecutará los jobs definidos, dándote feedback
+inmediato sobre el
+funcionamiento de tu pipeline de CI.
 
-This will build a JAR file with all the dependencies and front-end resources,ready to be run. The file can be found in the `target` folder after the build completes.
-You then launch the application using 
-```
-java -jar target/vaadin-playwright-junit-1.0-SNAPSHOT.jar
-```
+## Estructura del Proyecto
 
-## Project structure
-
-- `MainLayout.java` in `src/main/java` contains the navigation setup (i.e., the
-  side/top bar and the main menu). This setup uses
-  [App Layout](https://vaadin.com/docs/components/app-layout).
-- `views` package in `src/main/java` contains the server-side Java views of your application.
-- `views` folder in `src/main/frontend` contains the client-side JavaScript views of your application.
-- `themes` folder in `src/main/frontend` contains the custom CSS styles.
-
-## Useful links
-
-- Read the documentation at [vaadin.com/docs](https://vaadin.com/docs).
-- Follow the tutorial at [vaadin.com/docs/latest/tutorial/overview](https://vaadin.com/docs/latest/tutorial/overview).
-- Create new projects at [start.vaadin.com](https://start.vaadin.com/).
-- Search UI components and their usage examples at [vaadin.com/docs/latest/components](https://vaadin.com/docs/latest/components).
-- View use case applications that demonstrate Vaadin capabilities at [vaadin.com/examples-and-demos](https://vaadin.com/examples-and-demos).
-- Build any UI without custom CSS by discovering Vaadin's set of [CSS utility classes](https://vaadin.com/docs/styling/lumo/utility-classes). 
-- Find a collection of solutions to common use cases at [cookbook.vaadin.com](https://cookbook.vaadin.com/).
-- Find add-ons at [vaadin.com/directory](https://vaadin.com/directory).
-- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/vaadin) or join our [Forum](https://vaadin.com/forum).
-- Report issues, create pull requests in [GitHub](https://github.com/vaadin).
+* `src/main/java`: Contiene el código fuente de la aplicación Vaadin que se va a probar.
+* `src/test/java`: Contiene las clases de prueba escritas con JUnit 5 y Playwright.
+* `.github/workflows/playwright-java.yml`: Define el pipeline de Integración Continua.
+* `pom.xml`: Gestiona las dependencias del proyecto, incluyendo Vaadin, Playwright, JUnit y los plugins de Maven
+  necesarios.

@@ -1,0 +1,167 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > RegistrationView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.javadominicano.views</a>
+</div>
+
+<h1>Coverage Summary for Class: RegistrationView (org.javadominicano.views)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RegistrationView</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66.7%
+  </span>
+  <span class="absValue">
+    (4/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (17/17)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.javadominicano.views;
+&nbsp;
+&nbsp;import com.vaadin.flow.component.button.Button;
+&nbsp;import com.vaadin.flow.component.checkbox.Checkbox;
+&nbsp;import com.vaadin.flow.component.html.H1;
+&nbsp;import com.vaadin.flow.component.html.Paragraph;
+&nbsp;import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+&nbsp;import com.vaadin.flow.component.textfield.EmailField;
+&nbsp;import com.vaadin.flow.component.textfield.TextField;
+&nbsp;import com.vaadin.flow.router.PageTitle;
+&nbsp;import com.vaadin.flow.router.Route;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author me@fredpena.dev
+&nbsp; * @created 22/06/2025  - 19:37
+&nbsp; */
+&nbsp;@PageTitle(&quot;Registration Form&quot;)
+&nbsp;@Route(&quot;registration&quot;)
+&nbsp;public class RegistrationView extends VerticalLayout {
+&nbsp;
+<b class="fc">&nbsp;    public RegistrationView() {</b>
+<b class="fc">&nbsp;        H1 title = new H1(&quot;Registration Form&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        TextField username = new TextField(&quot;Username&quot;);</b>
+<b class="fc">&nbsp;        username.setId(&quot;username&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        EmailField email = new EmailField(&quot;Email&quot;);</b>
+<b class="fc">&nbsp;        email.setId(&quot;email&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Checkbox terms = new Checkbox(&quot;I accept the terms and conditions&quot;);</b>
+<b class="fc">&nbsp;        terms.setId(&quot;terms&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Button submit = new Button(&quot;Submit&quot;);</b>
+<b class="fc">&nbsp;        submit.setId(&quot;submit&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Paragraph description = new Paragraph();</b>
+<b class="fc">&nbsp;        description.setId(&quot;msg&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        submit.addClickListener(event -&gt; {</b>
+<b class="pc">&nbsp;            if (username.isEmpty() || email.isEmpty() || !terms.getValue()) {</b>
+<b class="fc">&nbsp;                description.setText(&quot;Please fill out all fields and accept the terms and conditions.&quot;);</b>
+&nbsp;            } else {
+<b class="fc">&nbsp;                description.setText(&quot;Registration successful! Username: &quot; + username.getValue() + &quot;, Email: &quot; + email.getValue());</b>
+&nbsp;            }
+&nbsp;        });
+&nbsp;
+<b class="fc">&nbsp;        add(title, username, email, terms, submit, description);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-06-22 12:56</div>
+</div>
+</body>
+</html>

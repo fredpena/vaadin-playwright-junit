@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > MultiButtonView</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">org.javadominicano.views</a>
+</div>
+
+<h1>Coverage Summary for Class: MultiButtonView (org.javadominicano.views)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">MultiButtonView</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (20/20)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package org.javadominicano.views;
+&nbsp;
+&nbsp;import com.vaadin.flow.component.button.Button;
+&nbsp;import com.vaadin.flow.component.html.Paragraph;
+&nbsp;import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+&nbsp;import com.vaadin.flow.component.textfield.TextField;
+&nbsp;import com.vaadin.flow.router.PageTitle;
+&nbsp;import com.vaadin.flow.router.Route;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author me@fredpena.dev
+&nbsp; * @created 22/06/2025  - 19:12
+&nbsp; */
+&nbsp;@PageTitle(&quot;Multi Button Form&quot;)
+&nbsp;@Route(&quot;multi&quot;)
+&nbsp;public class MultiButtonView extends VerticalLayout {
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;    public MultiButtonView() {</b>
+&nbsp;
+<b class="fc">&nbsp;        TextField nameField = new TextField(&quot;Name&quot;);</b>
+<b class="fc">&nbsp;        nameField.setId(&quot;name-field&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        TextField lastNameField = new TextField(&quot;Last Name&quot;);</b>
+<b class="fc">&nbsp;        lastNameField.setId(&quot;last-name-field&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Paragraph paragraph = new Paragraph(&quot;&quot;);</b>
+<b class="fc">&nbsp;        paragraph.setId(&quot;msg&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;        Button button1 = new Button(&quot;Button 1&quot;, e -&gt; {</b>
+<b class="fc">&nbsp;            paragraph.setText(&quot;Button 1 Clicked!&quot;);</b>
+&nbsp;        });
+<b class="fc">&nbsp;        button1.setId(&quot;btn1&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Button button2 = new Button(&quot;Button 2&quot;, e -&gt; {</b>
+<b class="fc">&nbsp;            paragraph.setText(&quot;Button 2 Clicked!&quot;);</b>
+&nbsp;        });
+<b class="fc">&nbsp;        button2.setId(&quot;btn2&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Button button3 = new Button(&quot;Button 3&quot;, e -&gt; {</b>
+<b class="fc">&nbsp;            paragraph.setText(&quot;Button 3 Clicked! Name: &quot; + nameField.getValue() + &quot;, Last Name: &quot; + lastNameField.getValue());</b>
+&nbsp;        });
+<b class="fc">&nbsp;        button3.setId(&quot;btn3&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        Button button4 = new Button();</b>
+<b class="fc">&nbsp;        button4.setVisible(false);</b>
+<b class="fc">&nbsp;        button4.setId(&quot;btn4&quot;);</b>
+&nbsp;
+<b class="fc">&nbsp;        add(nameField, lastNameField, paragraph, button1, button2, button3, button4);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-06-22 12:56</div>
+</div>
+</body>
+</html>
