@@ -22,16 +22,24 @@ public class PlaywrightIT {
         playwright = Playwright.create();
         BrowserType browserType = playwright.chromium();
 
-        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions().setHeadless(true);
-        launchOptions.headless = false;
+        boolean headless = Boolean.parseBoolean(
+                System.getenv().getOrDefault("HEADLESS", "true")
+        );
+
+        BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions()
+                .setHeadless(headless);
 
         browser = browserType.launch(launchOptions);
     }
 
     @AfterAll
     public static void afterAll() {
-        browser.close();
-        playwright.close();
+        if (browser != null) {
+            browser.close();
+        }
+        if (playwright != null) {
+            playwright.close();
+        }
     }
 
     @BeforeEach
@@ -50,8 +58,8 @@ public class PlaywrightIT {
 
     @AfterEach
     void afterEach() {
-        page.close();
-        browserContext.close();
+        if (page != null) page.close();
+        if (browserContext != null) browserContext.close();
     }
 
 }
