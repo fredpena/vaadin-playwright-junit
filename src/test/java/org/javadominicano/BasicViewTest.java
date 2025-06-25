@@ -24,8 +24,8 @@ public class BasicViewTest extends PlaywrightIT {
 
         assertThat(page.getByText("Click me")).isVisible();
 
-//        page.locator("vaadin-button").getByText("Click me").click();
-        page.locator("#btn").click();
+        page.locator("vaadin-button").getByText("Click me").click();
+//        page.locator("#btn").click();
 
         assertThat(page.locator("#msg")).containsText("Clicked!");
 

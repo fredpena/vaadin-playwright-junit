@@ -21,7 +21,7 @@ public class BasicView extends VerticalLayout {
         paragraph.setId("msg");
 
         Button button = new Button("Click me");
-        button.setId("btn");
+        button.setId("btnClick");
         button.addClickListener(event -> {
             paragraph.setText("Clicked!");
         });
