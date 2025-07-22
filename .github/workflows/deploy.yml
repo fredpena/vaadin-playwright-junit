@@ -2,8 +2,9 @@ name: Deploy to Server
 
 on:
   push:
-    branches:
-      - develop
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   workflow_run:
     workflows: [ "Playwright UI Tests (JUnit)" ]
     types:
@@ -54,7 +55,7 @@ jobs:
           port: 22
           script: |
             pwd
-            cd /usr/local/app/dev
+            cd /usr/local/app
             docker compose pull
-            docker compose down -v
+#            docker compose down -v
             docker compose up -d

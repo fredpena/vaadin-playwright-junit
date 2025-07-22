@@ -32,6 +32,3 @@ services:
       - "traefik.http.routers.fredpena.entrypoints=websecure"
       - "traefik.http.services.fredpena-service.loadbalancer.server.port=40301"
       - "traefik.http.routers.fredpena.tls.certresolver=letsencrypt"
-
-volumes:
-  db_postgres:
