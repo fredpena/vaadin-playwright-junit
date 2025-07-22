@@ -1,0 +1,37 @@
+services:
+  traefik:
+    image: "traefik:v3.4"
+    container_name: "traefik"
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.tlschallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.email=me@fredpena.dev"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "./letsencrypt:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
+  app:
+    image: fredpena/vaadin-playwright-junit:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.fredpena.rule=Host(`app.fredpena.dev`)"
+      - "traefik.http.routers.fredpena.service=fredpena-service"
+      - "traefik.http.routers.fredpena.entrypoints=websecure"
+      - "traefik.http.services.fredpena-service.loadbalancer.server.port=40301"
+      - "traefik.http.routers.fredpena.tls.certresolver=letsencrypt"
+
+volumes:
+  db_postgres:

@@ -25,11 +25,6 @@ jobs:
       - name: Verify Maven installation
         run: mvn -version
 
-      - name: Build project (skip tests)
-        run: |
-          mvn dependency:go-offline -Pproduction
-          mvn clean package -DskipTests -Pproduction
-
       - name: Install Playwright CLI (Java)
         run: mvn exec:exec -Dexec.executable="npx" -Dexec.args="playwright install --with-deps"
 
