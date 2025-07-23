@@ -24,7 +24,7 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
 
   app:
-    image: fredpena/vaadin-playwright-junit:latest
+    image: fredpena/vaadin-playwright-junit:lastest
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.fredpena.rule=Host(`app.fredpena.dev`)"
