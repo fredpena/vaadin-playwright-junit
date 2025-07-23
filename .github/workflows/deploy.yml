@@ -5,10 +5,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  workflow_run:
-    workflows: [ "Playwright UI Tests (JUnit)" ]
-    types:
-      - completed
+#  workflow_run:
+#    workflows: [ "Playwright UI Tests (JUnit)" ]
+#    types:
+#      - completed
 
 jobs:
   build-and-deploy:
@@ -57,5 +57,4 @@ jobs:
             pwd
             cd /usr/local/app
             docker compose pull
-#            docker compose down -v
             docker compose up -d
