@@ -1,8 +1,8 @@
 name: pulumi-iac
-description: ICC-433
+description: ICC-303
 runtime: java
 config:
   pulumi:tags:
     value:
       pulumi:template: java
-      jug: ICC-433
+      jug: ICC-303

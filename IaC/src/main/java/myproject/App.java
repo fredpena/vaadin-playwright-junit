@@ -14,7 +14,7 @@ public class App {
             // Create a new Droplet in nyc1
             Droplet droplet = new Droplet("web", DropletArgs.builder()
                     .image("debian-12-x64")
-                    .name("iac-icc-443")
+                    .name("iac-icc-303")
                     .region("nyc1")
                     .size("s-1vcpu-2gb")
                     .sshKeys(fingerprint)

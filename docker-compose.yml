@@ -1,0 +1,25 @@
+services:
+  app:
+    image: kennethreitz/httpbin   # Una app de prueba (GET /status/200 etc.)
+    container_name: demo-app
+    ports:
+      - "8080:80"
+
+  jmeter:
+    image: justb4/jmeter:5.6.3
+    container_name: jmeter-cli
+    depends_on:
+      - app
+    volumes:
+      - ./jmeter:/scripts
+      - ./reports:/reports
+    command: >
+      -n
+      -t /scripts/plan.jmx
+      -l /reports/result.jtl
+      -e -o /reports/html
+      -Jthreads=100
+      -Jrampup=20
+      -Jduration=60
+      -Jhost=demo-app
+      -Jport=80
